@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gateside — TicketSwap gate-failure agent</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gateside</h1>
+      <p class="sub">TicketSwap gate-failure support agent · one engine, two channels</p>
+    </header>
+
+    <main>
+      <section class="conversation">
+        <div class="tabs">
+          <button class="tab active" data-channel="chat">Chat</button>
+          <button class="tab" data-channel="email">Email</button>
+        </div>
+
+        <div class="scenario-row">
+          <label for="scenario">Pre-built scenario</label>
+          <select id="scenario">
+            <option value="">— choose one or type your own below —</option>
+          </select>
+          <button id="reset" type="button" title="Clear conversation">↻ Reset</button>
+        </div>
+
+        <div id="transcript" class="transcript" aria-live="polite"></div>
+
+        <form id="composer">
+          <textarea id="message" placeholder="Type a message as a TicketSwap buyer…" rows="3"></textarea>
+          <button id="send" type="submit">Send</button>
+        </form>
+      </section>
+
+      <aside class="trace">
+        <h2>Agent trace</h2>
+        <p class="hint">Tool calls, results, and the reason code the agent chose if it escalated.</p>
+        <ol id="trace-list"></ol>
+      </aside>
+    </main>
+
+    <footer>
+      <span>Mock TicketSwap data. No real orders, no PII.</span>
+      <span><a href="https://github.com/balazsthomay/gateside" target="_blank" rel="noopener">source</a></span>
+    </footer>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
